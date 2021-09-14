@@ -1,8 +1,11 @@
 // Assigning variables to HTML elements using IDs
-var buttonEl = document.querySelector('#save-task');
+var formEl = document.querySelector('#task-form');
 var tasksToDoEl = document.querySelector('#tasks-to-do');
 
-var createTaskHandler = function() {
+var createTaskHandler = function(event) {
+
+    event.preventDefault();
+
     // Create a new task item
     var listItemEl = document.createElement('li');
     // Style the new task item
@@ -11,7 +14,7 @@ var createTaskHandler = function() {
     listItemEl.textContent = 'This is a new task.';
     // Append this element to the task list
     tasksToDoEl.appendChild(listItemEl);
-}
+};
 
 // EVENTLISTENER
-buttonEl.addEventListener('click', createTaskHandler);
+formEl.addEventListener('submit', createTaskHandler);
